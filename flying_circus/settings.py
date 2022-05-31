@@ -150,6 +150,7 @@ TINYMCE_DEFAULT_CONFIG = {
     "theme": "silver",
     "height": 500,
     "menubar": True,
+    "valid_elements": "*[*]",  # to allow py-script html tag to be saved by tinymce
     "plugins": "advlist,autolink,lists,link,image,charmap,print,preview,anchor,"
     "searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,"
     "code,help,wordcount",
