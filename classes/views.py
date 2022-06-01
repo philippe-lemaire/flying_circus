@@ -1,8 +1,11 @@
+from typing import List
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
+from .models import Course, Lesson
 
 # Create your views here.
-from django.http import HttpResponse
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the classes index.")
+class IndexView(ListView):
+    model = Course
+    ordering: "order"
