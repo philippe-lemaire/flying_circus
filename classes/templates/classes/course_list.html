@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Cours{% endblock %}
+{% block content %}
+
+<h1>Les Cours</h1>
+{% if course_list %}
+<div class="row gx-5">
+        <div class="col-8">
+                <div>
+                        {% for course in course_list %}
+                        <h2><a href="#">{{course.title|title}}</a>
+                        </h2>
+                        <p class="course-summary">Publié par <strong>Philippe
+                                        Lemaire</strong> le {{course.pub_date|date}}</p>
+                        <p>{{course.summary}}</p>
+                        <p><a class="link-readmore" href="#">Lire
+                                        le cours ></a></p>
+
+                        <hr>
+                        {% endfor %}
+
+                </div>
+
+                <br>
+                <div class="pagination">
+                        <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                        {% if page_obj.has_previous %}
+                                        <li class="page-item"><a class="page-link"
+                                                        href="?page={{ page_obj.previous_page_number }}">Précédente</a>
+                                        </li>
+                                        {% endif %}
+
+                                        {% for page in paginator%}
+                                        <li class="page-item"><a class="page-link" href="?page={{ forloop.counter }}">
+                                                        {{ forloop.counter }}</a></li>
+
+                                        {% endfor %}
+
+                                        {% if page_obj.has_next %}
+                                        <li class="page-item"><a class="page-link"
+                                                        href="?page={{ page_obj.next_page_number }}">Suivante</a></li>
+                                        {% endif %}
+                                </ul>
+                        </nav>
+
+                </div>
+        </div>
+
+</div>
+
+{% else %}
+<p>Aucun course.</p>
+{% endif %}
+{% endblock %}
