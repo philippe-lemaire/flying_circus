@@ -10,12 +10,13 @@
                         {% for course in course_list %}
                         <h2><a href="#">{{course.title|title}}</a>
                         </h2>
-                        <p class="course-summary">Publié par <strong>Philippe
-                                        Lemaire</strong> le {{course.pub_date|date}}</p>
-                        <p>{{course.summary}}</p>
-                        <p><a class="link-readmore" href="#">Lire
-                                        le cours ></a></p>
-
+                        <p class="course-summary">Responsable : <strong>{{course.manager.first_name}} {{course.manager.last_name}}</strong></p>
+                        {{course.content |safe }}
+                        <ul>
+                                {% for lesson in course.lesson_set.all %}
+                                        <li><a href="{% url 'classes:lesson_detail' course.slug lesson.slug %}">{{ lesson.title }}</a></li>
+                                {% endfor %}
+                        </ul>
                         <hr>
                         {% endfor %}
 
