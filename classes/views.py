@@ -8,4 +8,4 @@ from .models import Course, Lesson
 
 class IndexView(ListView):
     model = Course
-    ordering: "order"
+    ordering = "order"
