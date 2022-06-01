@@ -11,5 +11,9 @@ class IndexView(ListView):
     ordering = "order"
 
 
+class CourseDetailView(DetailView):
+    model = Course
+
+
 class LessonDetailView(DetailView):
     model = Lesson

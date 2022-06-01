@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{course.title|title}}{% endblock %}
+
+{% block content %}
+
+<h1>{{ course.title|title }}</h1>
+        
+
+        {{ course.content |safe }}
+
+        <p>Par <strong>{{course.manager.first_name}} {{course.manager.last_name}}</strong></p>
+
+
+{% endblock %}

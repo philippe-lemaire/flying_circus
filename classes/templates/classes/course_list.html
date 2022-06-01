@@ -8,15 +8,15 @@
         <div class="col-8">
                 <div>
                         {% for course in course_list %}
-                        <h2><a href="#">{{course.title|title}}</a>
+                        <h2><a href="{% url 'classes:course_detail' course.slug %}">{{course.title|title}}</a>
                         </h2>
                         <p class="course-summary">Responsable : <strong>{{course.manager.first_name}} {{course.manager.last_name}}</strong></p>
-                        {{course.content |safe }}
-                        <ul>
+                        
+                        <ol>
                                 {% for lesson in course.lesson_set.all %}
                                         <li><a href="{% url 'classes:lesson_detail' course.slug lesson.slug %}">{{ lesson.title }}</a></li>
                                 {% endfor %}
-                        </ul>
+                        </ol>
                         <hr>
                         {% endfor %}
 

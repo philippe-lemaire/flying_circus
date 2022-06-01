@@ -1,22 +1,14 @@
 {% extends "base.html" %}
 {% block title %}{{lesson.title|title}}{% endblock %}
+
 {% block content %}
+
 <h1>{{ lesson.title|title }}</h1>
-<div class="row gx-5">
-    <div class="col-8">
-        <p class="article-summary">Par <strong>{{lesson.manager.first_name}} {{lesson.manager.last_name}}</strong></p>
+        
 
-        <p>{{ lesson.content |safe }}</p>
-    </div>
-    
+        {{ lesson.content |safe }}
 
-</div>
+        <p>Par <strong>{{lesson.manager.first_name}} {{lesson.manager.last_name}}</strong></p>
 
-
-
-🏷️
-{% for tag in article.tags.all %}
-<a class="badge rounded-pill bg-primary text-light" href="{% url 'blog:tag_detail' tag.slug %}">{{tag.name}}</a>
-{% endfor %}
 
 {% endblock %}
